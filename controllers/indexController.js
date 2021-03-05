@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-exports.homePagesList = function (req, res) {
+exports.homePagesList = function (req, res, next) {
   const url = process.env.CMS_API + "/home-pages";
   axios.get(url)
     .then(function (response) {
@@ -11,6 +11,7 @@ exports.homePagesList = function (req, res) {
   }).catch(function (error) {
     // handle error
     console.log(error);
+    next(error);
   })
 
 }

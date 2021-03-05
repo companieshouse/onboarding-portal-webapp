@@ -1,2 +1,2 @@
-# automatic-octo-couscous
+# Onboarding Portal Project
 Grad Portal Project
