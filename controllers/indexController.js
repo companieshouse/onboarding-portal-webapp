@@ -7,7 +7,7 @@ exports.homePagesList = function (req, res) {
     // handle success
     console.log(response.data[0]);
     const resultData = response.data[0]["page_content"];
-    res.send(resultData);
+    res.render('index', {title : resultData});
   }).catch(function (error) {
     // handle error
     console.log(error);
