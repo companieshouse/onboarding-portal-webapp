@@ -24,5 +24,17 @@ npm run start
 ```
 Navigate to http://localhost:3000 in your browser to see the landing page.
 
+## Building with Docker
+To build a docker image for this app run the following command
+```
+docker build -t onboarding-portal-webapp .
+```
+To start a docker container with the image run the following
+```
+docker run -p 127.0.0.1:3000:3000 onboarding-portal-webapp
+```
+
+The Webapp will then be accessible on `127.0.0.1:3000`
+
 ## Troubleshooting
 If the webapp displays errors, ensure the CMS_API environment variable points to the correct URL and verify that the STRAPI api is running.
