@@ -4,7 +4,7 @@ A webapp which displays content to introduce new starters to the digital departm
 ## Technologies
 - [Node](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
-- [Jade](https://jade-lang.com/)
+- [Nunjucks](https://mozilla.github.io/nunjucks/)
 
 ## Environment Variables
 Create a file named '.env' at the root of the project and include environment variables in this file.
