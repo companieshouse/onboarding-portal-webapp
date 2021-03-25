@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Returned Data:
+  p ---
+    for page in data
+      p {
+      each val, key in page
+        p #{key}: #{val}
+      p }

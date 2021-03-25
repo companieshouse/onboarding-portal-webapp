@@ -1,17 +1,10 @@
-const axios = require('axios');
+const { getHomePages } = require("../services/contentService");
 
 exports.homePagesList = function (req, res, next) {
-  const url = process.env.CMS_API + "/home-pages";
-  axios.get(url)
-    .then(function (response) {
-    // handle success
-    console.log(response.data[0]);
-    const resultData = response.data[0]["page_content"];
-    res.render('index', {title : resultData});
-  }).catch(function (error) {
-    // handle error
-    console.log(error);
-    next(error);
-  })
-
+    getHomePages()
+      .then(function (data) {
+        return res.render('index', {title: "Home Pages", data: data});
+      }).catch(function (error) {
+      next(error);
+      })
 }
