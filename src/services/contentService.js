@@ -1,7 +1,7 @@
-const axios = require("axios");
+const axios = require('axios');
 
 exports.getHomePages = async function () {
-  const url = process.env.CMS_API + "/home-pages";
+  const url = process.env.CMS_API + '/home-pages';
   return await axios.get(url)
     .then(function (response) {
       // handle success
@@ -9,8 +9,7 @@ exports.getHomePages = async function () {
       return response.data;
     }).catch(function (error) {
     // handle error
-    console.log(error);
-    throw error;
-  })
-
-}
+      console.log(error);
+      throw error;
+    });
+};
