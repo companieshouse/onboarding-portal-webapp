@@ -14,6 +14,7 @@ The following is a list of mandatory environment variables for the service to ru
 Name                    | Description                            | Example Value
 ----------------------- | ------------------------------------   | -----------------------------------------------
 CMS_API                 | The URL of the backend STRAPI api      | http://localhost:1337
+PATH_PREFIX             | The prefix to any routes for the webapp| /portal 
 
 ## Running locally
 The webapp will run locally on localhost:3000, so ensure this port is free.

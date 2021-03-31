@@ -5,7 +5,6 @@ exports.register = async function (res, username, email, password) {
   const url = process.env.CMS_API + '/auth/local/register';
 
   // Request API.
-  // Add your own code here to customize or restrict how the public can register new users.
   await axios
     .post(url, {
       username: username,
