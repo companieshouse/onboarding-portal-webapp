@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const createError = require('http-errors');
 const express = require('express');
 const nunjucks = require('nunjucks');
@@ -5,7 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes');
+const router = require('./routes');
 
 const app = express();
 require('dotenv').config();
@@ -19,8 +20,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', indexRouter);
+app.use(router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
