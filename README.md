@@ -15,6 +15,7 @@ Name                    | Description                            | Example Value
 ----------------------- | ------------------------------------   | -----------------------------------------------
 CMS_API                 | The URL of the backend STRAPI api      | http://localhost:1337
 PATH_PREFIX             | The prefix to any routes for the webapp| /portal 
+MOCK_API_RESPONSES      | Whether to actually call the api or use local JSON | true
 
 ## Running locally
 The webapp will run locally on localhost:3000, so ensure this port is free.
@@ -36,6 +37,9 @@ docker run -p 127.0.0.1:3000:3000 onboarding-portal-webapp
 ```
 
 The Webapp will then be accessible on `127.0.0.1:3000`
+
+## Mock Api Responses
+If `MOCK_API_RESPONSES` is set to true, the api call for `/home-pages` will return the contents of mockApiResponses/homepage.json instead of calling an actual api
 
 ## Troubleshooting
 If the webapp displays errors, ensure the CMS_API environment variable points to the correct URL and verify that the STRAPI api is running.
