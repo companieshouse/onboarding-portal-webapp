@@ -40,7 +40,7 @@ exports.login = async function (res, identifier, password) {
     })
     .catch(error => {
       // Handle error.
-      console.log('An error occurred:', error.response);
+      console.log('An error occurred:', error);
       throw error;
     });
 };

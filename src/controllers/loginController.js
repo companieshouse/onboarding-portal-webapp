@@ -12,6 +12,11 @@ exports.loginPost = function (req, res, next) {
 
       return login(res, identifier, password).then(function () {
         return res.redirect(`${process.env.PATH_PREFIX}/`);
+      }).catch(error => {
+        if(error.response && error.response.status === 400) {
+            return res.render('login', {error : 'Invalid Credentials'});
+          }
+        return next(error);
       });
     }
 
