@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 
 exports.getHomePages = async function () {
-  if (process.env.MOCK_API_RESPONSES !== true) {
+  if (process.env.MOCK_API_RESPONSES !== 'true') {
     console.log('api_path');
     const url = process.env.CMS_API + '/home-pages';
     return await axios.get(url)
