@@ -18,14 +18,14 @@ export const getHomePages = async (): Promise<any> => {
         return response.data;
       }).catch(function (error: AxiosError) {
         // handle error
-        console.log(error);
+        console.log('An error occurred:', error.message);
         throw error;
       });
   } else {
     try {
       const rawResponse = fs.readFileSync('mockApiResponses/homepage.json', 'utf-8');
       return JSON.parse(rawResponse);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       throw error;
     }

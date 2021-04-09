@@ -2,6 +2,7 @@ import { NextFunction } from "express";
 import { login } from "../services/accountService";
 import { register } from "../services/accountService";
 import { Request, Response } from "express";
+import { AxiosError } from "axios";
 
   export const loginGet = (req: Request, res: Response): any => {
     return res.render('login');
@@ -15,7 +16,7 @@ import { Request, Response } from "express";
 
         return login(res, identifier, password).then(function () {
           return res.redirect(`${process.env.PATH_PREFIX}/`);
-        }).catch(error => {
+        }).catch((error: AxiosError ) => {
           if (error.response && error.response.status === 400) {
             return res.render('login', { error: 'Invalid Credentials' });
           }

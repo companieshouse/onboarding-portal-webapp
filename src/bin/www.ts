@@ -5,7 +5,7 @@
  */
 
 import app from "../app";
-import debug = require('debug');
+import debug from 'debug';
 import http = require('http');
 
 /**

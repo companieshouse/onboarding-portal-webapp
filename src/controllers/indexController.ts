@@ -1,6 +1,7 @@
 import { NextFunction } from 'express';
 import { getHomePages } from '../services/contentService';
 import { Request, Response } from "express";
+import { AxiosError } from 'axios';
 
 export const homePagesList = (req: Request, res: Response, next: NextFunction): any => {
   getHomePages()
@@ -9,7 +10,7 @@ export const homePagesList = (req: Request, res: Response, next: NextFunction): 
         title: 'Home Pages',
         data: data
       });
-    }).catch(function (error: Error) {
+    }).catch(function (error: AxiosError) {
       next(error);
     });
 };

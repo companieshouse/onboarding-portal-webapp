@@ -2,8 +2,7 @@ import axios = require('axios');
 import { setAuthTokenCookie } from "./cookieService";
 import { Response } from "express";
 import { AxiosResponse, AxiosError } from "axios";
-import { getBaseAxiosRequestConfig, HTTP_GET, HTTP_POST, makeAPICall } from '../config/axiosConfig';
-import { token } from 'morgan';
+import { ApiError, getBaseAxiosRequestConfig, HTTP_GET, HTTP_POST, makeAPICall } from '../config/axiosConfig';
 
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {
@@ -15,22 +14,22 @@ export const register = async (res: Response, username: string, email: string, p
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
     HTTP_POST, url);
   
-  const data = {
+   axiosConfig.data = {
     username: username,
     email: email,
     password: password
   };
 
-  await (await makeAPICall(axiosConfig)).data
+  await makeAPICall(axiosConfig)
     .then((response: AxiosResponse) => {
       // Handle success.
       console.log('User profile', response.data.user);
       console.log('User token', response.data.jwt);
       setAuthTokenCookie(res, response.data.jwt);
     })
-    .catch((error: AxiosError) => {
+    .catch((error: ApiError) => {
       // Handle error.
-      console.log('An error occurred:', error.response);
+      console.log('An error occurred:', error.message);
       throw error;
     });
 };
@@ -42,21 +41,21 @@ export const login = async (res: Response, identifier: string, password: string)
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
     HTTP_POST, url);
 
-  const data = {
+  axiosConfig.data = {
     identifier: identifier,
     password: password
   };
 
-  await (await makeAPICall(axiosConfig)).data
+  await makeAPICall(axiosConfig)
     .then((response: AxiosResponse) => {
       // Handle success.
       console.log('User profile', response.data.user);
       console.log('User token', response.data.jwt);
       setAuthTokenCookie(res, response.data.jwt);
     })
-    .catch((error: Error) => {
+    .catch((error: ApiError) => {
       // Handle error.
-      console.log('An error occurred:', error);
+      console.log('An error occurred:', error.message);
       throw error;
     });
 };
