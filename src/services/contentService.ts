@@ -3,11 +3,12 @@ import fs = require('fs');
 import { AxiosError, AxiosResponse } from "axios";
 import { getBaseAxiosRequestConfig, HTTP_GET, makeAPICall } from '../config/axiosConfig';
 import { Homepage } from '../types/homepage';
+import { CMS_API_URL, MOCK_API_RESPONSES } from '../utils/properties';
 
 export const getHomePages = async (): Promise<Homepage> => {
-  if (process.env.MOCK_API_RESPONSES !== 'true') {
+  if (MOCK_API_RESPONSES !== 'true') {
     console.log('api_path');
-    const url: string = process.env.CMS_API + '/home-pages';
+    const url: string = CMS_API_URL + '/home-pages';
     
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
     HTTP_GET, url);

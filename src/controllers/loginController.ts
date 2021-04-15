@@ -2,6 +2,7 @@ import { NextFunction } from "express";
 import { login } from "../services/accountService";
 import { register } from "../services/accountService";
 import { Request, Response } from "express";
+import { PATH_PREFIX } from '../utils/properties';
 
 export const loginGet = (req: Request, res: Response): void => {
     return res.render('login');
@@ -15,7 +16,7 @@ export const loginPost = async (req: Request, res: Response, next: NextFunction)
 
             try {
                 await login(res, identifier, password);
-                return res.redirect(`${process.env.PATH_PREFIX}/`);
+                return res.redirect(`${PATH_PREFIX}/`);
             } catch (error) {
                 if (error.response && error.response.status === 400) {
                     return res.render('login', { error: 'Invalid Credentials' });
@@ -29,7 +30,7 @@ export const loginPost = async (req: Request, res: Response, next: NextFunction)
             const username = req.body.username;
 
             await register(res, username, email, password);
-            return res.redirect(`${process.env.PATH_PREFIX}/`);
+            return res.redirect(`${PATH_PREFIX}/`);
         }
     }
 };
