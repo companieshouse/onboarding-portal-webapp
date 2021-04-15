@@ -32,7 +32,7 @@ export const getBaseAxiosRequestConfig = (
  */
 export const makeAPICall = async (config: AxiosRequestConfig): Promise<AxiosResponse> => {
   try {
-    const axiosResponse: AxiosResponse = await axios.request<any>(config);
+    const axiosResponse: AxiosResponse = await axios.request<AxiosResponse>(config);
     return axiosResponse;
   } catch (err) {
     const axiosError = err as AxiosError;
