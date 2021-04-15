@@ -1,15 +1,5 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, Method } from "axios";
 
-/**
- * Api Error
- * @interface
- */
-export interface ApiError {
-    data: any;
-    message: string;
-    status: number;
-}
-
 export const STATUS_NO_RESPONSE = -1;
 export const HTTP_GET: Method = "get";
 export const HTTP_POST: Method = "post";
@@ -38,19 +28,18 @@ export const getBaseAxiosRequestConfig = (
  * Call the API using the supplied Axios request config.
  * @param {AxiosRequestConfig} config axios request config
  * @returns {Promise<AxiosResponse>} the api response
- * @throws {ApiError} if something goes wrong
+ * @throws {AxiosError} if something goes wrong
  */
 export const makeAPICall = async (config: AxiosRequestConfig): Promise<AxiosResponse> => {
   try {
     const axiosResponse: AxiosResponse = await axios.request<any>(config);
     return axiosResponse;
-  } catch (apiErr) {
-    const axiosError = apiErr as AxiosError;
+  } catch (err) {
+    const axiosError = err as AxiosError;
     const { response, message } = axiosError;
     throw {
-      data: response ? response.data : [],
-      message,
-      status: response ? response.status : STATUS_NO_RESPONSE,
-    } as ApiError;
+      response,
+      message
+    }
   }
 };

@@ -9,7 +9,7 @@ import dotenv = require('dotenv');
 import { router } from "./routes";
 
 import { Request, Response, NextFunction } from 'express';
-import { ApiError } from './config/axiosConfig';
+import { AxiosError } from 'axios';
 
 const app = express();
 dotenv.config();
@@ -33,13 +33,13 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
 });
 
 // error handler
-app.use(function (err: ApiError, req: Request, res: Response) {
+app.use(function (err: Error, req: Request, res: Response) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(500);
   res.render('error');
 });
 

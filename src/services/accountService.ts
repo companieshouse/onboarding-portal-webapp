@@ -1,8 +1,8 @@
 import axios = require('axios');
 import { setAuthTokenCookie } from "./cookieService";
 import { Response } from "express";
-import { AxiosResponse } from "axios";
-import { ApiError, getBaseAxiosRequestConfig, HTTP_POST, makeAPICall } from '../config/axiosConfig';
+import { AxiosResponse, AxiosError } from "axios";
+import { getBaseAxiosRequestConfig, HTTP_POST, makeAPICall } from '../config/axiosConfig';
 
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {
@@ -27,7 +27,7 @@ export const register = async (res: Response, username: string, email: string, p
       console.log('User token', response.data.jwt);
       setAuthTokenCookie(res, response.data.jwt);
     })
-    .catch((error: ApiError) => {
+    .catch((error: AxiosError) => {
       // Handle error.
       console.log('An error occurred:', error.message);
       throw error;
@@ -53,7 +53,7 @@ export const login = async (res: Response, identifier: string, password: string)
       console.log('User token', response.data.jwt);
       setAuthTokenCookie(res, response.data.jwt);
     })
-    .catch((error: ApiError) => {
+    .catch((error: AxiosError) => {
       // Handle error.
       console.log('An error occurred:', error.message);
       throw error;
