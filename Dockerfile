@@ -1,17 +1,30 @@
+FROM node:14-alpine AS build
+# Create app directory
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+RUN npm run build
+#Delete src and test to not copy into final image
+RUN rm -rf src/
+RUN rm -rf test/
+
 FROM node:14-alpine
 
-# Create app directory
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
 RUN npm ci --production
 
-USER node
+COPY --from=build /usr/src/app ./
 
-COPY . .
+USER node
 
 EXPOSE 3000
 
-CMD [ "node", "./src/bin/www" ]
-
+CMD [ "node", "./dist/bin/www" ]

@@ -1,15 +1,17 @@
-const bodyParser = require('body-parser');
-const createError = require('http-errors');
-const express = require('express');
-const nunjucks = require('nunjucks');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+import bodyParser = require('body-parser');
+import createError = require('http-errors');
+import express = require('express');
+import nunjucks = require('nunjucks');
+import path = require('path');
+import cookieParser = require('cookie-parser');
+import logger = require('morgan');
+import dotenv = require('dotenv');
+import { router } from "./routes";
 
-const router = require('./routes');
+import { Request, Response, NextFunction } from 'express';
 
 const app = express();
-require('dotenv').config();
+dotenv.config();
 
 // view engine setup
 nunjucks.configure('views', { autoescape: true, express: app });
@@ -25,19 +27,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err: Error, req: Request, res: Response) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(500);
   res.render('error');
 });
 
-module.exports = app;
+export default app;
