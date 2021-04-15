@@ -4,7 +4,7 @@
  * thrown.
  */
 
-const getEnvironmentVariable = (key: string, defaultValue?: any): string => {
+const getEnvironmentVariable = (key: string, defaultValue?: string): string => {
     const isMandatory = !defaultValue;
     const value: string = process.env[key] || "";
 
