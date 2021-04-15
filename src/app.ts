@@ -9,7 +9,6 @@ import dotenv = require('dotenv');
 import { router } from "./routes";
 
 import { Request, Response, NextFunction } from 'express';
-import { AxiosError } from 'axios';
 import { ApiError } from './config/axiosConfig';
 
 const app = express();

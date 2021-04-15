@@ -1,8 +1,8 @@
 import axios = require('axios');
 import { setAuthTokenCookie } from "./cookieService";
 import { Response } from "express";
-import { AxiosResponse, AxiosError } from "axios";
-import { ApiError, getBaseAxiosRequestConfig, HTTP_GET, HTTP_POST, makeAPICall } from '../config/axiosConfig';
+import { AxiosResponse } from "axios";
+import { ApiError, getBaseAxiosRequestConfig, HTTP_POST, makeAPICall } from '../config/axiosConfig';
 
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {
