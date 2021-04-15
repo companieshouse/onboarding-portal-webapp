@@ -40,6 +40,6 @@ export const makeAPICall = async (config: AxiosRequestConfig): Promise<AxiosResp
     throw {
       response,
       message
-    }
+    };
   }
 };
