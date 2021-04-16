@@ -3,7 +3,7 @@ import fs = require('fs');
 import { AxiosError, AxiosResponse } from "axios";
 import { getBaseAxiosRequestConfig, HTTP_GET, makeAPICall } from '../config/axiosConfig';
 import { Homepage } from '../types/homepage';
-import { CMS_API_URL, MOCK_API_RESPONSES } from '../utils/properties';
+import { CMS_API_URL, MOCK_API_RESPONSES } from '../properties';
 
 export const getHomePages = async (): Promise<Homepage> => {
   if (MOCK_API_RESPONSES !== 'true') {

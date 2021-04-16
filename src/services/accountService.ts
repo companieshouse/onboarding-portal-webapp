@@ -3,7 +3,7 @@ import { setAuthTokenCookie } from "./cookieService";
 import { Response } from "express";
 import { AxiosResponse, AxiosError } from "axios";
 import { getBaseAxiosRequestConfig, HTTP_POST, makeAPICall } from '../config/axiosConfig';
-import { CMS_API_URL } from '../utils/properties';
+import { CMS_API_URL } from '../properties';
 
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {

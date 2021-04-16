@@ -2,7 +2,7 @@ import { NextFunction } from "express";
 import { login } from "../services/accountService";
 import { register } from "../services/accountService";
 import { Request, Response } from "express";
-import { PATH_PREFIX } from '../utils/properties';
+import { PATH_PREFIX } from '../properties';
 
 export const loginGet = (req: Request, res: Response): void => {
     return res.render('login');
