@@ -3,11 +3,12 @@ import { setAuthTokenCookie } from "./cookieService";
 import { Response } from "express";
 import { AxiosResponse, AxiosError } from "axios";
 import { getBaseAxiosRequestConfig, HTTP_POST, makeAPICall } from '../config/axiosConfig';
+import { CMS_API_URL } from '../properties';
 
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {
   
-  const url: string = process.env.CMS_API + '/auth/local/register';
+  const url: string = CMS_API_URL + '/auth/local/register';
 
   // Request API.
 
@@ -35,7 +36,7 @@ export const register = async (res: Response, username: string, email: string, p
 };
 
 export const login = async (res: Response, identifier: string, password: string): Promise<void> => {
-  const url: string = process.env.CMS_API + '/auth/local';
+  const url: string = CMS_API_URL + '/auth/local';
   // Request API.
 
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(

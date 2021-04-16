@@ -11,10 +11,10 @@ Create a file named '.env' at the root of the project and include environment va
 
 The following is a list of mandatory environment variables for the service to run:
 
-Name                    | Description                            | Example Value
------------------------ | ------------------------------------   | -----------------------------------------------
-CMS_API                 | The URL of the backend STRAPI api      | http://localhost:1337
-PATH_PREFIX             | The prefix to any routes for the webapp| /portal 
+Name                    | Description                                        | Example Value
+----------------------- | -------------------------------------------------- | -----------------------------------------------
+CMS_API_URL             | The URL of the backend STRAPI api                  | http://localhost:1337
+PATH_PREFIX             | The prefix to any routes for the webapp            | /portal 
 MOCK_API_RESPONSES      | Whether to actually call the api or use local JSON | true
 
 ## Running locally
