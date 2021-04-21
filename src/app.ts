@@ -5,13 +5,11 @@ import nunjucks = require('nunjucks');
 import path = require('path');
 import cookieParser = require('cookie-parser');
 import logger = require('morgan');
-import dotenv = require('dotenv');
 import { router } from "./routes";
 
 import { Request, Response, NextFunction } from 'express';
 
 const app = express();
-dotenv.config();
 
 // view engine setup
 nunjucks.configure('views', { autoescape: true, express: app });
@@ -25,6 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(router);
+
+// Don't error when looking for favicon TODO Handle favicon properly
+app.get('/favicon.ico', (req, res) => res.status(200));
 
 // catch 404 and forward to error handler
 app.use(function (req: Request, res: Response, next: NextFunction) {
