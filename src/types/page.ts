@@ -1,4 +1,4 @@
-export interface Homepage {
+export interface Page {
 
     "_id": string;
     "page_content": string;
