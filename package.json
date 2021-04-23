@@ -6,7 +6,8 @@
     "build": "tsc",
     "start": "node dist/bin/www",
     "buildAndStart": "npm run build && npm run start",
-    "lint": "eslint 'src/**/*'"
+    "lint": "eslint 'src/**/*'",
+    "lint:fix": "eslint 'src/**/*' --fix"
   },
   "dependencies": {
     "axios": "^0.21.1",

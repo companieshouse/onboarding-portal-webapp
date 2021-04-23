@@ -12,6 +12,7 @@ RUN npm run build
 #Delete src and test to not copy into final image
 RUN rm -rf src/
 RUN rm -rf test/
+RUN rm -rf node_modules/
 
 FROM node:14-alpine
 
