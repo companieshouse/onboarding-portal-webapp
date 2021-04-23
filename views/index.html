@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>Returned Data:</h1>
-    <p>
-        {% for page in data %}
-            {% for key, value in page %}
-                <p>{{key}} : {{value}}</p>
-            {% endfor %}
-        {% endfor %}
-    </p>
+<h1>Returned Data:</h1>
+<p>
+    {% for key, value in data %}
+        <p>{{key}} : {{value}}</p>
+    {% endfor %}
+</p>
 {% endblock %}

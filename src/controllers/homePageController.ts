@@ -1,10 +1,10 @@
 import { NextFunction } from 'express';
-import { getHomePages } from '../services/contentService';
+import { getHomePageContent } from '../services/contentService';
 import { Request, Response } from "express";
 import { AxiosError } from 'axios';
 
-export const homePagesList = (req: Request, res: Response, next: NextFunction): void => {
-  getHomePages()
+export const homePage = (req: Request, res: Response, next: NextFunction): void => {
+  getHomePageContent()
     .then(function (data) {
       return res.render('index', {
         title: 'Home Pages',
