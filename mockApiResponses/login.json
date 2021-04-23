@@ -1,0 +1,23 @@
+{
+    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODJiMGVjOTM5YjI0MDAxYzU0MWFjYiIsImlhdCI6MTYxOTE3OTE2NywiZXhwIjoxNjIxNzcxMTY3fQ._saRhzopczIsFG4j9Ir7Oc4b7-Tpe02F8ay-8t14Yp0",
+    "user": {
+        "confirmed": true,
+        "blocked": false,
+        "_id": "6082b0ec939b24001c541acb",
+        "username": "test",
+        "email": "ian@test.com",
+        "provider": "local",
+        "createdAt": "2021-04-23T11:35:08.501Z",
+        "updatedAt": "2021-04-23T11:35:08.568Z",
+        "__v": 0,
+        "role": {
+            "_id": "60422fde9e28352146f6b2fc",
+            "name": "Authenticated",
+            "description": "Default role given to authenticated user.",
+            "type": "authenticated",
+            "__v": 0,
+            "id": "60422fde9e28352146f6b2fc"
+        },
+        "id": "6082b0ec939b24001c541acb"
+    }
+}

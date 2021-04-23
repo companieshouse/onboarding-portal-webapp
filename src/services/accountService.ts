@@ -1,16 +1,15 @@
 import axios = require('axios');
 import { setAuthTokenCookie } from "./cookieService";
+import fs = require('fs');
 import { Response } from "express";
 import { AxiosResponse, AxiosError } from "axios";
 import { getBaseAxiosRequestConfig, HTTP_POST, makeAPICall } from '../config/axiosConfig';
-import { CMS_API_URL } from '../properties';
+import { CMS_API_URL, MOCK_API_RESPONSES } from '../properties';
 
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {
   
   const url: string = CMS_API_URL + '/auth/local/register';
-
-  // Request API.
 
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
     HTTP_POST, url);
@@ -21,23 +20,11 @@ export const register = async (res: Response, username: string, email: string, p
     password: password
   };
 
-  await makeAPICall(axiosConfig)
-    .then((response: AxiosResponse) => {
-      // Handle success.
-      console.log('User profile', response.data.user);
-      console.log('User token', response.data.jwt);
-      setAuthTokenCookie(res, response.data.jwt);
-    })
-    .catch((error: AxiosError) => {
-      // Handle error.
-      console.log('An error occurred:', error.message);
-      throw error;
-    });
+  await callApiAndSetCookie(axiosConfig, res);
 };
 
 export const login = async (res: Response, identifier: string, password: string): Promise<void> => {
   const url: string = CMS_API_URL + '/auth/local';
-  // Request API.
 
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
     HTTP_POST, url);
@@ -46,17 +33,39 @@ export const login = async (res: Response, identifier: string, password: string)
     identifier: identifier,
     password: password
   };
-
-  await makeAPICall(axiosConfig)
-    .then((response: AxiosResponse) => {
-      // Handle success.
-      console.log('User profile', response.data.user);
-      console.log('User token', response.data.jwt);
-      setAuthTokenCookie(res, response.data.jwt);
-    })
-    .catch((error: AxiosError) => {
-      // Handle error.
-      console.log('An error occurred:', error.message);
-      throw error;
-    });
+  await callApiAndSetCookie(axiosConfig, res);
 };
+
+async function callApiAndSetCookie(axiosConfig:axios.AxiosRequestConfig, res: Response): Promise<void> {
+  if (MOCK_API_RESPONSES === 'true') {
+    mockApiAndSetCookie(res);
+    return Promise.resolve();
+  }
+  return await makeAPICall(axiosConfig)
+  .then((response: AxiosResponse) => {
+    // Handle success.
+    console.log(response.data);
+    // console.log('User profile', response.data.user);
+    // console.log('User token', response.data.jwt);
+    setAuthTokenCookie(res, response.data.jwt);
+    return Promise.resolve();
+  })
+  .catch((error: AxiosError) => {
+    // Handle error.
+    console.log('An error occurred:', error.message);
+    throw error;
+  });
+}
+
+function mockApiAndSetCookie(res: Response) {
+  try {
+    const rawResponse = fs.readFileSync('mockApiResponses/login.json', 'utf-8');
+    const jsonResponse = JSON.parse(rawResponse);
+    const jwt = jsonResponse.jwt;
+
+    setAuthTokenCookie(res, jwt);
+  } catch (error: unknown) {
+    console.log(error);
+    throw error;
+  }
+}
