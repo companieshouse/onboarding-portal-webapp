@@ -1,5 +1,4 @@
-[
-    {
+{
         "_id": "605cbef2955cde001cecfdb2",
         "page_content": "this is a home page",
         "published_at": "2021-03-25T16:48:53.452Z",
@@ -7,5 +6,4 @@
         "updatedAt": "2021-03-25T16:48:53.498Z",
         "__v": 0,
         "id": "605cbef2955cde001cecfdb2"
-    }
-]
+}
