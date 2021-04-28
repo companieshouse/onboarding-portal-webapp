@@ -7,7 +7,7 @@ export const homePagesList = (req: Request, res: Response, next: NextFunction): 
   getHomePages()
     .then(function (data) {
       return res.render('index', {
-        title: 'Home Pages',
+        title: 'Onboarding platform',
         data: data
       });
     }).catch(function (error: AxiosError) {

@@ -1,12 +1,37 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>Returned Data:</h1>
-    <p>
-        {% for page in data %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third-from-desktop">
+        <h1 class="govuk-heading-xl">Welcome to Companies House</h1>
+        <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius interdum accumsan. Morbi leo nibh, euismod nec laoreet quis, cursus et neque. Vivamus fringilla euismod volutpat. Morbi sed elit id massa molestie malesuada quis
+          et velit. Phasellus rhoncus sit amet ex vel finibus. Maecenas vel est ut velit interdum consectetur ac nec velit. Sed sit amet sem ac nibh congue luctus.</p>
+      </div>
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/E7gdNfr20sE"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen="allowfullscreen"></iframe>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h2 class="govuk-heading-l">Returned Data:</h1>
+        <p class="govuk-body">
+          {% for page in data %}
             {% for key, value in page %}
-                <p>{{key}} : {{value}}</p>
+              <p class="govuk-body">{{key}}
+                :
+                {{value}}</p>
             {% endfor %}
-        {% endfor %}
-    </p>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
 {% endblock %}
