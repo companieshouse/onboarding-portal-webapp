@@ -1,29 +1,77 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>{{error}}<h1>
-    <div>
-        <h1>Login</h1>
-        <form method="post" action="{{PATH_PREFIX}}/login?return_to=url-to-hit-after">
-            <label for="username">Username/Email:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br>
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third-from-desktop">
+        <h1 class="govuk-heading-l">{{error}}
+          <h1>
+            <div>
+              <h1 class="govuk-heading-l">Login</h1>
+              <form method="post" action="{{PATH_PREFIX}}/login?return_to=url-to-hit-after">
 
-            <input type="submit" value="Login">
-        </form>
-    </div>
-    <div>
-        <h1>Register</h1>
-        <form method="post" action="{{PATH_PREFIX}}/register">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br>
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="username">
+                      Username
+                    </label>
+                  </h1>
+                  <input class="govuk-input" id="username" name="username" type="text">
+                </div>
 
-            <input type="submit" value="Register">
-        </form>
-    </div>
-{% endblock %}
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="password">
+                      Password
+                    </label>
+                  </h1>
+                  <input class="govuk-input" type="password" id="password" name="password">
+                </div>
+
+                <button class="govuk-button" type="submit" data-module="govuk-button">
+                  Login
+                </button>
+
+              </form>
+            </div>
+
+            <div>
+              <h1 class="govuk-heading-l">Register</h1>
+              <form method="post" action="{{PATH_PREFIX}}/register">
+
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="email">
+                      Email
+                    </label>
+                  </h1>
+                  <input class="govuk-input" id="email" name="email" type="email">
+                </div>
+
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="username">
+                      Username
+                    </label>
+                  </h1>
+                  <input class="govuk-input" id="username" name="username" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label" for="password">
+                      Password
+                    </label>
+                  </h1>
+                  <input class="govuk-input" type="password" id="password" name="password">
+                </div>
+
+                <button class="govuk-button" type="submit" data-module="govuk-button">
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
