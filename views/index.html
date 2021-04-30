@@ -2,15 +2,15 @@
 
 {% block content %}
   <div class="govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third-from-desktop">
+    <div class="govuk-grid-row govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+      <div class="govuk-grid-column-one-half-from-desktop">
         <h1 class="govuk-heading-xl">Welcome to Companies House</h1>
         <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius interdum accumsan. Morbi leo nibh, euismod nec laoreet quis, cursus et neque. Vivamus fringilla euismod volutpat. Morbi sed elit id massa molestie malesuada quis
           et velit. Phasellus rhoncus sit amet ex vel finibus. Maecenas vel est ut velit interdum consectetur ac nec velit. Sed sit amet sem ac nibh congue luctus.</p>
       </div>
-      <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-column-one-half-from-desktop">
         <iframe
-          width="560"
+          width="100%"
           height="315"
           src="https://www.youtube.com/embed/E7gdNfr20sE"
           title="YouTube video player"
@@ -19,19 +19,22 @@
           allowfullscreen="allowfullscreen"></iframe>
       </div>
     </div>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds-from-desktop">
-        <h2 class="govuk-heading-l">Returned Data:</h1>
-        <p class="govuk-body">
-          {% for page in data %}
-            {% for key, value in page %}
-              <p class="govuk-body">{{key}}
-                :
-                {{value}}</p>
-            {% endfor %}
-          {% endfor %}
-        </p>
+  </div>
+
+  <section class="promo-banner promo-banner--dark-theme govuk-!-margin-bottom-9">
+    <div class="govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+          <div class="promo-banner__content">
+            <h2 class="govuk-heading-l">Companies House</h2>
+            <p class="govuk-body">We incorporate and dissolve limited companies. We register company information and make it available to the public.</p>
+            <p class="govuk-body">Companies House is an executive agency, sponsored by the Department for Business, Energy & Industrial Strategy.</p>
+            <p class="govuk-body">
+              <a class="govuk-link" href="/students">More about Companies House</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 {% endblock %}
