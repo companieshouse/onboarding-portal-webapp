@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, Method } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 
 export const STATUS_NO_RESPONSE = -1;
 export const HTTP_GET: Method = "get";
@@ -31,15 +31,6 @@ export const getBaseAxiosRequestConfig = (
  * @throws {AxiosError} if something goes wrong
  */
 export const makeAPICall = async (config: AxiosRequestConfig): Promise<AxiosResponse> => {
-  try {
     const axiosResponse: AxiosResponse = await axios.request<AxiosResponse>(config);
     return axiosResponse;
-  } catch (err) {
-    const axiosError = err as AxiosError;
-    const { response, message } = axiosError;
-    throw {
-      response,
-      message
-    };
-  }
 };

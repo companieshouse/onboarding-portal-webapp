@@ -1,7 +1,6 @@
 import { NextFunction } from 'express';
 import { getHomePageContent } from '../services/contentService';
 import { Request, Response } from "express";
-import { AxiosError } from 'axios';
 
 export const homePage = (req: Request, res: Response, next: NextFunction): void => {
   getHomePageContent()
@@ -10,7 +9,7 @@ export const homePage = (req: Request, res: Response, next: NextFunction): void 
         title: 'Onboarding platform',
         data: data
       });
-    }).catch(function (error: AxiosError) {
+    }).catch(function (error: Error) {
       next(error);
     });
 };
