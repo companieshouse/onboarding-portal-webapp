@@ -29,15 +29,16 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
 
-// error handler
-app.use(function (err: Error, req: Request, res: Response) {
+app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.message = req.app.get('env') === 'development' ? err.message : {};
+  res.locals.error = req.app.get('env') === 'development' ? err.stack : {};
 
-  // render the error page
-  res.status(500);
-  res.render('error');
+  console.log(err);
+
+  res.status(500).render('error');
+  return next();
 });
+
 
 export default app;
