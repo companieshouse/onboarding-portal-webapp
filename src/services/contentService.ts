@@ -8,20 +8,9 @@ import { CMS_API_URL, MOCK_API_RESPONSES } from '../properties';
 export const getHomePageContent = async (): Promise<Page> => {
   if (MOCK_API_RESPONSES !== 'true') {
     console.log('api_path');
-    const url: string = CMS_API_URL + '/pages/home-page';
 
-    const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
-      HTTP_GET, url);
-
-    return await makeAPICall(axiosConfig)
-      .then(function (response: AxiosResponse) {
-        // handle success
-        console.log(response.data);
-        return response.data as Page;
-      }).catch(function (error: AxiosError) {
-        // handle error
-        throw error;
-      });
+    const homePageId = "home-page";
+    return await getContentForId(homePageId);
   } else {
     const rawResponse = fs.readFileSync('mockApiResponses/homepage.json', 'utf-8');
     return JSON.parse(rawResponse);
@@ -32,7 +21,8 @@ export const getHomePageContent = async (): Promise<Page> => {
 export const getPageContent = async (pageId: string): Promise<Page> => {
   if (MOCK_API_RESPONSES !== 'true') {
     console.log('api_path');
-    throw new Error("Backend not supported yet");
+    
+    return await getContentForId(pageId);
   } else {
     const rawResponse = fs.readFileSync('mockApiResponses/page.json', 'utf-8');
     const jsonResponse = JSON.parse(rawResponse);
@@ -43,3 +33,20 @@ export const getPageContent = async (pageId: string): Promise<Page> => {
 
   }
 };
+
+async function getContentForId(pageId: string) {
+  const url = CMS_API_URL + '/pages/' + pageId;
+
+  const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
+    HTTP_GET, url);
+
+  return await makeAPICall(axiosConfig)
+    .then(function (response: AxiosResponse) {
+      // handle success
+      console.log(response.data);
+      return response.data as Page;
+    }).catch(function (error: AxiosError) {
+      // handle error
+      throw error;
+    });
+}

@@ -8,7 +8,7 @@ export const page = (req: Request, res: Response, next: NextFunction): void => {
 
     getPageContent(pageId)
         .then(function (data) {
-            return res.render('index', {
+            return res.render('templates/layoutOne', {
                 title: pageId,
                 data: data
             });

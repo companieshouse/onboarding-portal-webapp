@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+    <div class="govuk-grid-column-one-half-from-desktop">
+      <h1 class="govuk-heading-xl">Welcome to {{ data.id }}</h1>
+      <p class="govuk-body">{{ data.main_content }}</p>
+    </div>
+  </div>
+</div>
+
+<section class="promo-banner promo-banner--dark-theme govuk-!-margin-bottom-9">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <div class="promo-banner__content">
+          <h2 class="govuk-heading-l">Companies House</h2>
+          <p class="govuk-body">We incorporate and dissolve limited companies. We register company information and make
+            it available to the public.</p>
+          <p class="govuk-body">Companies House is an executive agency, sponsored by the Department for Business, Energy
+            & Industrial Strategy.</p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="/students">More about Companies House</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
