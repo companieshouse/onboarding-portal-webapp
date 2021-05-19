@@ -9,7 +9,7 @@ export const getHomePageContent = async (): Promise<Page> => {
   if (MOCK_API_RESPONSES !== 'true') {
     console.log('api_path');
 
-    const homePageId = "609d4a26a90f85a3c7421921";
+    const homePageId = "home-page";
     return await getContentForId(homePageId);
   } else {
     const rawResponse = fs.readFileSync('mockApiResponses/homepage.json', 'utf-8');
