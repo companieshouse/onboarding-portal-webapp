@@ -1025,7 +1025,7 @@ body {
 }
 
 .govuk-width-container {
-    max-width: 960px;
+    max-width: 1360px;
     margin-right: 15px;
     margin-left: 15px
 }
@@ -7804,13 +7804,17 @@ only screen and (min-resolution:192dpi) {
 }
 
 .promo-banner {
- background-color:#902082;
- background-image:linear-gradient(46deg,#3c388e,#902082);
+ background-color:#2E1946;
  overflow:hidden;
  padding-bottom:5em;
  padding-top:3em;
  position:relative
 }
+
+.promo-banner-green{
+  background-image: linear-gradient(46deg,#3BBF99,#1BCE7A);
+}
+
 .promo-banner:after {
  background-image:url(https://cdn.census.gov.uk/design-system/32.1.3-census/img/census-promo-banner.svg);
  background-position:50% 0;
@@ -7862,4 +7866,26 @@ only screen and (min-resolution:192dpi) {
 }
 .promo-banner--has-image:after {
  content:none
+}
+
+.purple-bg{
+  background: #2E1946;
+}
+
+.govuk-btn{
+  background:#2B7EE1;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.three-columns{
+      columns: 3;
+      color: #2E1946;
+      column-gap: 75px;
+      column-rule: 2px outset #3181DF;
 }
