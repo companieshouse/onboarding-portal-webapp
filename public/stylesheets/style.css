@@ -7800,6 +7800,15 @@ only screen and (min-resolution:192dpi) {
   margin-bottom: 20px;
 }
 
+.onboarding-platform__header nav{
+  color: white;
+  font-family: Helvetica Neue, Helvetica, arial, sans-serif;
+}
+
+.onboarding-platform__header nav a:link, .onboarding-platform__header nav a:visited {
+  color: white;
+}
+
 .onboarding-platform__header .govuk-heading-m{
   color: #fff;
   margin-bottom: 0;

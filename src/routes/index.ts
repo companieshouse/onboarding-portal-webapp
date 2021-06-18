@@ -1,5 +1,6 @@
 import express = require('express');
 import { homePage } from '../controllers/homePageController';
+import { infoPage } from '../controllers/infoPageController';
 import { loginPost, registerPost } from '../controllers/loginController';
 import { loginGet } from '../controllers/loginController';
 import { Router } from "express";
@@ -12,5 +13,7 @@ router.post('/login', loginPost);
 router.post('/register', registerPost);
 
 router.get('/', homePage);
+
+router.get('/information-hub', infoPage);
 
 router.get('/page/:page_id', page);
