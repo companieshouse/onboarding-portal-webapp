@@ -7877,8 +7877,7 @@ only screen and (min-resolution:192dpi) {
 .govuk-btn{
   background:#2B7EE1;
   color: #fff;
-  border-radius: 8px;
-  font-size: 24px;
+  font-size: 20px;
   font-family: sans-serif;
   font-weight: bold;
   text-decoration: none;
