@@ -7900,3 +7900,17 @@ only screen and (min-resolution:192dpi) {
       column-gap: 75px;
       column-rule: 2px outset #3181DF;
 }
+
+.panel{
+  background: #2E1946;
+
+}
+
+.panel .govuk-link:link{
+  color: white;
+  text-decoration: none;
+}
+
+.panel p, .panel .govuk-list{
+    color: white;
+}
