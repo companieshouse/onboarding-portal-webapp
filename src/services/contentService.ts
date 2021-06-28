@@ -9,7 +9,7 @@ export const getHomePageContent = async (): Promise<Page> => {
   if (MOCK_API_RESPONSES !== 'true') {
     console.log('api_path');
 
-    const homePageId = "home-page";
+    const homePageId = "home";
     return await getContentForId(homePageId);
   } else {
     const rawResponse = fs.readFileSync('mockApiResponses/homepage.json', 'utf-8');
@@ -35,7 +35,7 @@ export const getPageContent = async (pageId: string): Promise<Page> => {
 };
 
 async function getContentForId(pageId: string) {
-  const url = CMS_API_URL + '/pages/' + pageId;
+  const url = CMS_API_URL + '/pages?page_id=' + pageId;
 
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
     HTTP_GET, url);
@@ -44,7 +44,7 @@ async function getContentForId(pageId: string) {
     .then(function (response: AxiosResponse) {
       // handle success
       console.log(response.data);
-      return response.data as Page;
+      return response.data[0] as Page;
     }).catch(function (error: AxiosError) {
       // handle error
       throw error;
