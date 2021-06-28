@@ -6,7 +6,6 @@ export const infoPage = (req: Request, res: Response, next: NextFunction): void 
   getHomePageContent()
     .then(function (data) {
       return res.render('information-hub', {
-        title: 'Key',
         data: data
       });
     }).catch(function (error: Error) {

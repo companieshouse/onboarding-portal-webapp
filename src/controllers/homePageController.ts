@@ -6,7 +6,6 @@ export const homePage = (req: Request, res: Response, next: NextFunction): void 
   getHomePageContent()
     .then(function (data) {
       return res.render('index', {
-        title: 'Key',
         data: data
       });
     }).catch(function (error: Error) {
