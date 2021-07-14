@@ -8,8 +8,7 @@ export const page = (req: Request, res: Response, next: NextFunction): void => {
 
     getPageContent(pageId)
         .then(function (data) {
-            return res.render('templates/layoutOne', {
-                title: pageId,
+            return res.render(`templates/${data.template_id}`, {
                 data: data
             });
         }).catch(function (error: AxiosError) {
