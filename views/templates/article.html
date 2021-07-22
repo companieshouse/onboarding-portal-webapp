@@ -5,8 +5,15 @@
     <div class="govuk-grid-row govuk-!-margin-top-9">
       <div class="govuk-grid-column-two-thirds">
         <a href="information-hub" class="govuk-back-link">Back</a>
-        <h1 class="govuk-heading-xl">{data.page_title}</h1>
-        {{ data.main_content | safe }}
+        <h1 class="govuk-heading-xl">{{ data.page_title }}</h1>
+        {% for paragraph in data.paragraphs %}
+          {% if paragraph.heading %}
+            <h2 class="govuk-heading-l">{{ paragraph.heading }}</h2>
+          {% endif %}
+          {% if paragraph.body %}
+            <p class="govuk-body">{{ paragraph.body }} </p>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
