@@ -3,9 +3,14 @@ export interface Page {
     "_id": string;
     "createdAt": string;
     "id": string;
-    "main_content": string;
     "page_id": string;
+    "paragraphs": Paragraph[];
     "published_at": string;
     "template_id": string;
     "updatedAt": string;
+}
+
+export interface Paragraph {
+    "body": string;
+    "heading": string;
 }
