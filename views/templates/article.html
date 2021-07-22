@@ -11,7 +11,7 @@
             <h2 class="govuk-heading-l">{{ paragraph.heading }}</h2>
           {% endif %}
           {% if paragraph.body %}
-            <p class="govuk-body">{{ paragraph.body }} </p>
+            <p class="govuk-body">{{ paragraph.body | striptags(true) | escape | nl2br}} </p>
           {% endif %}
         {% endfor %}
       </div>
