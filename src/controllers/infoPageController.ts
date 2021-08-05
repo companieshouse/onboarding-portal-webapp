@@ -1,9 +1,9 @@
 import { NextFunction } from 'express';
-import { getHomePageContent } from '../services/contentService';
+import { getAllArticles } from '../services/contentService';
 import { Request, Response } from "express";
 
 export const infoPage = (req: Request, res: Response, next: NextFunction): void => {
-  getHomePageContent()
+  getAllArticles()
     .then(function (data) {
       return res.render('information-hub', {
         data: data

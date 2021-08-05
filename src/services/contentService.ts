@@ -50,3 +50,20 @@ async function getContentForId(pageId: string) {
       throw error;
     });
 }
+
+export async function getAllArticles(): Promise<Page[]> {
+  const url = CMS_API_URL + '/pages';
+
+  const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
+    HTTP_GET, url);
+
+  return await makeAPICall(axiosConfig)
+    .then(function (response: AxiosResponse) {
+      // handle success
+      console.log(response.data);
+      return response.data as Page[];
+    }).catch(function (error: AxiosError) {
+      // handle error
+      throw error;
+    });
+}

@@ -22,3 +22,5 @@ export const CMS_API_URL = getEnvironmentVariable("CMS_API_URL", false);
 export const PATH_PREFIX = getEnvironmentVariable("PATH_PREFIX", false);
 
 export const MOCK_API_RESPONSES = getEnvironmentVariable("MOCK_API_RESPONSES", true);
+
+export const NODE_ENV = getEnvironmentVariable("NODE_ENV", false);

@@ -1,132 +1,39 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-one-half-from-desktop">
+      <h1 class="govuk-heading-xl">Information Hub</h1>
+      <label class="govuk-label" for="complete">Progress</label>
+      <progress id="complete" class="govuk-!-margin-bottom-4" value="32" max="100">
+        32%
+      </progress>
+    </div>
+  </div>
+</div>
+{% for page in data %}
+<div class="panel">
   <div class="govuk-width-container">
-    <div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
       <div class="govuk-grid-column-one-half-from-desktop">
-        <h1 class="govuk-heading-xl">Information Hub</h1>
-        <label class="govuk-label" for="complete">Progress</label>
-        <progress id="complete" class="govuk-!-margin-bottom-4" value="32" max="100">
-          32%
-        </progress>
+        <h2 class="govuk-heading-m govuk-!-margin-top-8">
+          <a href="/page/{{page.page_id}}" class="govuk-link">{{page.page_title}}</a>
+        </h2>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
+          <li>Setting up your home working environment</li>
+          <li>Health and safety when working at home</li>
+          <li>Ordering equipment and resources</li>
+        </ul>
       </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <h2 class="govuk-heading-m govuk-!-margin-top-8">
-            <a href="article" class="govuk-link">Working life</a>
-          </h2>
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-            <li>Setting up your home working environment</li>
-            <li>Health and safety when working at home</li>
-            <li>Ordering equipment and resources</li>
-          </ul>
-        </div>
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <img src="/images/img-2.png"/>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <h2 class="govuk-heading-m govuk-!-margin-top-8">
-            <a href="#" class="govuk-link">Policy and Security</a>
-          </h2>
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-            <li>Office layout</li>
-            <li>Meeting rooms</li>
-            <li>Canteen and other useful places (maybe things nearby?)</li>
-          </ul>
-        </div>
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <img src="/images/img-1.png"/>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <h2 class="govuk-heading-m govuk-!-margin-top-8">
-            <a href="#" class="govuk-link">Companies House Systems</a>
-          </h2>
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-            <li>Flexi and clocking</li>
-            <li>Annual leave and absences</li>
-            <li>Payslips, P60’s etc…</li>
-          </ul>
-        </div>
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <img src="/images/img-4.png"/>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <h2 class="govuk-heading-m govuk-!-margin-top-8">
-            <a href="#" class="govuk-link">Support</a>
-          </h2>
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-            <li>Internal communication platforms</li>
-            <li>External communication platforms</li>
-            <li>Civil Service communication platforms</li>
-          </ul>
-        </div>
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <img src="/images/img-3.png"/>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <h2 class="govuk-heading-m govuk-!-margin-top-8">
-            <a href="#" class="govuk-link">Performance and Pay</a>
-          </h2>
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-            <li>Workplace communities</li>
-            <li>HR Advisory</li>
-            <li>Buddies and mentors</li>
-          </ul>
-        </div>
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <img src="/images/img-5.png"/>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="govuk-width-container">
-      <div class="govuk-grid-row govuk-!-margin-top-4 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <h2 class="govuk-heading-m govuk-!-margin-top-8">
-            <a href="#" class="govuk-link">Benefits</a>
-          </h2>
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-            <li>Learning and development</li>
-            <li>Check-ins</li>
-            <li>Mandatory courses</li>
-          </ul>
-        </div>
-        <div class="govuk-grid-column-one-half-from-desktop">
-          <img src="/images/img-6.png"/>
-        </div>
+
+      <div class="govuk-grid-column-one-half-from-desktop">
+        {% if page.image %}
+        <img src="{{page.image.url}}" alt="{{page.image.alternativeText}}" />
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
-</div>
-</div>
+{% endfor %}
 {% endblock %}>

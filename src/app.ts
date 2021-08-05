@@ -7,13 +7,14 @@ import logger = require('morgan');
 import { router } from "./routes";
 
 import { Request, Response, NextFunction } from 'express';
-import { PATH_PREFIX } from './properties';
+import { NODE_ENV, PATH_PREFIX } from './properties';
 
 const app = express();
 
 // view engine setup
 const nunjucksEnv = nunjucks.configure('views', { autoescape: true, express: app });
 nunjucksEnv.addGlobal("PATH_PREFIX", PATH_PREFIX);
+nunjucksEnv.addGlobal("NODE_ENV", NODE_ENV);
 app.set('view engine', 'html');
 
 app.use(logger('dev'));
@@ -31,8 +32,8 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
 
 app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
-  res.locals.message = req.app.get('env') === 'development' ? err.message : {};
-  res.locals.error = req.app.get('env') === 'development' ? err.stack : {};
+  res.locals.message = NODE_ENV === 'development' ? err.message : {};
+  res.locals.error = NODE_ENV === 'development' ? err.stack : {};
 
   console.log(err);
 
