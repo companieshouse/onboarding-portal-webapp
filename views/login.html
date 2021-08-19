@@ -7,7 +7,7 @@
       <h1 class="govuk-error-message">{{error}} </h1>
       <div>
         <h1 class="govuk-heading-l">Login</h1>
-        <form method="post" action="{{PATH_PREFIX}}/login?return_to=url-to-hit-after">
+        <form method="post" action="/login?return_to={{RETURN_URL}}">
 
           <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">
@@ -36,7 +36,7 @@
 
       <div>
         <h1 class="govuk-heading-l">Register</h1>
-        <form method="post" action="{{PATH_PREFIX}}/register">
+        <form method="post" action="/register?return_to={{RETURN_URL}}">
 
           <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">

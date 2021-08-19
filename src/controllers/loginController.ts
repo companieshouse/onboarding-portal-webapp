@@ -2,24 +2,28 @@ import { NextFunction } from "express";
 import { login } from "../services/accountService";
 import { register } from "../services/accountService";
 import { Request, Response } from "express";
-import { PATH_PREFIX } from '../properties';
 
 export const loginGet = (req: Request, res: Response): void => {
-    return res.render('login');
+    let returnUri = "/";
+    
+    if (req.headers.referer) {
+        returnUri=req.headers.referer;
+    }
+    return res.render('login', {RETURN_URL:encodeURI(returnUri)});
 };
 
 export const registerPost = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const password: string = req.body.password;
     const email: string = req.body.email;
     const username: string = req.body.username;
-    let returnTo: string;
+    let returnTo = "";
     if (req.query.return_to) {
         returnTo = req.query.return_to.toString();
     }
 
     try {
         await register(res, username, email, password);
-        return res.redirect(`${PATH_PREFIX}/${returnTo}`);
+        return res.redirect(`${returnTo}`);
     } catch (error) {
         if (error.response && error.response.status === 400) {
             return res.render('login', { error: 'Error Creating Account' });
@@ -31,14 +35,14 @@ export const registerPost = async (req: Request, res: Response, next: NextFuncti
 export const loginPost = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const password: string = req.body.password;
     const identifier: string = req.body.username;
-    let returnTo: string;
+    let returnTo = "";
     if (req.query.return_to) {
         returnTo = req.query.return_to.toString();
     }
 
     try {
         await login(res, identifier, password);
-        return res.redirect(`${PATH_PREFIX}/${returnTo}`);
+        return res.redirect(`${returnTo}`);
     } catch (error) {
         if (error.response && error.response.status === 400) {
             return res.render('login', { error: 'Invalid Credentials' });
