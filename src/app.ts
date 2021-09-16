@@ -7,13 +7,12 @@ import logger = require('morgan');
 import { router } from "./routes";
 
 import { Request, Response, NextFunction } from 'express';
-import { NODE_ENV, PATH_PREFIX } from './properties';
+import { NODE_ENV } from './properties';
 
 const app = express();
 
 // view engine setup
 const nunjucksEnv = nunjucks.configure('views', { autoescape: true, express: app });
-nunjucksEnv.addGlobal("PATH_PREFIX", PATH_PREFIX);
 nunjucksEnv.addGlobal("NODE_ENV", NODE_ENV);
 app.set('view engine', 'html');
 
