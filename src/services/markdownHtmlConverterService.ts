@@ -32,15 +32,10 @@ function sanitiseOptions(): IOptions {
           disallowedTagsMode: 'discard',
           allowedAttributes: {
             a: [ 'href', 'name', 'target' ],
-            // We don't currently allow img itself by default, but this
-            // would make sense if we did. You could add srcset here,
-            // and if you do the URL is checked for safety
             img: [ 'src', "alt" ],
             iframe: [ 'class', 'width', 'height', 'src', 'title', 'frameborder', 'allow', 'allowfullscreen']
           },
-          // Lots of these won't come up by default because we don't allow them
           selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' ],
-          // URL schemes we permit
           allowedSchemes: [ 'http', 'https', 'ftp', 'mailto', 'tel' ],
           allowedSchemesByTag: {},
           allowedSchemesAppliedToAttributes: [ 'href', 'src', 'cite' ],
