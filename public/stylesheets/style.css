@@ -7941,6 +7941,9 @@ only screen and (min-resolution:192dpi) {
   .main-video-container{
     padding-left: 0;
   }
+  .promo-banner__content .promo-video{
+    width: 100% !important;
+  }
 }
 
 .panel{
