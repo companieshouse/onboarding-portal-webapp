@@ -10,6 +10,8 @@ export async function convertMarkDownToSanitisedHTML(markDownString: string): Pr
 }
 
 export async function convertPageToSanitisedHTML(page:Page): Promise<Page> {
+    page.page_summary = await convertMarkDownToSanitisedHTML(page.page_summary);
+
     const paragraphs = page.paragraphs;
     paragraphs.forEach(async (paragraph) => {
         paragraph.body = await convertMarkDownToSanitisedHTML(paragraph.body);
@@ -33,13 +35,26 @@ function sanitiseOptions(): IOptions {
           allowedAttributes: {
             a: [ 'href', 'name', 'target' ],
             img: [ 'src', "alt" ],
-            iframe: [ 'class', 'width', 'height', 'src', 'title', 'frameborder', 'allow', 'allowfullscreen']
+            iframe: [ 'class', 'width', 'height', 'src', 'title', 'frameborder', 'allow', 'allowfullscreen'],
+            ul: ['class']
           },
           selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' ],
           allowedSchemes: [ 'http', 'https', 'ftp', 'mailto', 'tel' ],
           allowedSchemesByTag: {},
           allowedSchemesAppliedToAttributes: [ 'href', 'src', 'cite' ],
           allowProtocolRelative: true,
-          enforceHtmlBoundary: false
+          enforceHtmlBoundary: true
     };
 }
+
+// Override Marked functions to add gov uk classes to elements we want
+const renderer = {
+    list(body: string, ordered: boolean, start: string | number) {
+        const type = ordered ? 'ol' : 'ul',
+          startatt = (ordered && start !== 1) ? (' start="' + start + '"') : '';
+        const classAtt = ' class="govuk-list govuk-list--bullet govuk-!-margin-top-8" ';
+        return '<' + type + startatt + classAtt + '>\n' + body + '</' + type + '>\n';
+      }
+};
+
+marked.use({ renderer });

@@ -9,11 +9,9 @@
             <h2 class="govuk-heading-m govuk-!-margin-top-8">
               <a href="/page/{{page.page_id}}" class="govuk-link">{{page.page_title}}</a>
             </h2>
-            <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-8">
-              <li>Setting up your home working environment</li>
-              <li>Health and safety when working at home</li>
-              <li>Ordering equipment and resources</li>
-            </ul>
+            <div>
+              {{page.page_summary | safe}}
+            </div>
           </div>
 
           <div class="govuk-grid-column-one-half-from-desktop">
