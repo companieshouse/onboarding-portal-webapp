@@ -7955,7 +7955,7 @@ only screen and (min-resolution:192dpi) {
   color: white;
   text-decoration: underline;
   text-decoration-thickness: .125em;
-text-underline-offset: 10.5px;
+  text-underline-offset: 10.5px;
 }
 
 .panel p, .panel .govuk-list{
@@ -7963,7 +7963,6 @@ text-underline-offset: 10.5px;
 }
 
 progress#complete {
-  /*Reset the browser default styling using the apperance property and set the value to none*/
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
