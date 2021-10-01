@@ -17,13 +17,9 @@ CMS_API_URL             | The URL of the backend STRAPI api                  | h
 MOCK_API_RESPONSES      | Whether to actually call the api or use local JSON | true
 
 ## Running locally
-The webapp will run locally on localhost:3000, so ensure this port is free.
+Run `npm run buildAndStart` and navigate to http://localhost:3000 in your browser to see the landing page.
 
-In the root directory of the project, run the following command to start the webapp:
-```
-npm run start
-```
-Navigate to http://localhost:3000 in your browser to see the landing page.
+Alternatively, run `npm run build` to build and `npm run start` to deploy.
 
 ## Building with Docker
 To build a docker image for this app run the following command
