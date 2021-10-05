@@ -36,6 +36,7 @@ function sanitiseOptions(): IOptions {
             a: [ 'href', 'name', 'target' ],
             img: [ 'src', "alt" ],
             iframe: [ 'class', 'width', 'height', 'src', 'title', 'frameborder', 'allow', 'allowfullscreen'],
+            p: ['class'],
             ul: ['class']
           },
           selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' ],
@@ -54,7 +55,11 @@ const renderer = {
           startatt = (ordered && start !== 1) ? (' start="' + start + '"') : '';
         const classAtt = ' class="govuk-list govuk-list--bullet govuk-!-margin-top-8" ';
         return '<' + type + startatt + classAtt + '>\n' + body + '</' + type + '>\n';
+      },
+      paragraph(text: string) {
+        return '<p class="govuk-body">' + text + '</p>\n';
       }
 };
+
 
 marked.use({ renderer });
