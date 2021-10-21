@@ -8,6 +8,7 @@ import { router } from "./routes";
 
 import { Request, Response, NextFunction } from 'express';
 import { NODE_ENV } from './properties';
+import { userAuthMiddleware } from './middleware/userAuthMiddleware';
 
 const app = express();
 
@@ -21,6 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
+
+app.use("/information-hub*", userAuthMiddleware);
+app.use("/page*", userAuthMiddleware);
 
 app.use(router);
 

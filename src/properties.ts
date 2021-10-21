@@ -22,3 +22,5 @@ export const CMS_API_URL = getEnvironmentVariable("CMS_API_URL", false);
 export const MOCK_API_RESPONSES = getEnvironmentVariable("MOCK_API_RESPONSES", true);
 
 export const NODE_ENV = getEnvironmentVariable("NODE_ENV", false);
+
+export const COOKIE_NAME = "key-cookie";
