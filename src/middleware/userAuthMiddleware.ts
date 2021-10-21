@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios from "axios";
 import { Request, Response, NextFunction } from "express";
 import { CMS_API_URL, COOKIE_NAME } from "../properties";
 
@@ -17,11 +17,11 @@ export const userAuthMiddleware = async (req: Request, res: Response, next: Next
   }
 
   return res.redirect("/login?return="+req.originalUrl);
-}
+};
 
 async function validateCookie(cookie: string): Promise<boolean> {
   try {
-    const _response = await axios({
+    await axios({
       method: 'get',
       url: `${CMS_API_URL}/users/me`,
       headers: {
