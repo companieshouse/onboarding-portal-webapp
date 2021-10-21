@@ -4,11 +4,8 @@ import { register } from "../services/accountService";
 import { Request, Response } from "express";
 
 export const loginGet = (req: Request, res: Response): void => {
-    let returnUri = "/";
+    const returnUri = req.query.return as string;
     
-    if (req.headers.referer) {
-        returnUri=req.headers.referer;
-    }
     return res.render('login', {RETURN_URL:encodeURI(returnUri)});
 };
 
