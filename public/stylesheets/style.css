@@ -7985,3 +7985,8 @@ progress#complete::-webkit-progress-bar{
   background: #0eb98f;
   background: #2B7FE2;
 }
+
+.sign-in-panel-right{
+  background: #2B7FE2;
+  color: white;
+}
