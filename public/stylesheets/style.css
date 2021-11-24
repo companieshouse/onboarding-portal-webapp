@@ -7989,4 +7989,24 @@ progress#complete::-webkit-progress-bar{
 .sign-in-panel-right{
   background: #2B7FE2;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in-panel-right h2{
+    color: white;
+}
+
+.sign-in-panel-left{
+    background: #fff;
+
+}
+
+.sign-in-container{
+    display: flex;
+}
+
+.sign-in{
+    background-color: #F3F2F1;
 }
