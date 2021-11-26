@@ -1,13 +1,17 @@
 {% extends "layout.html" %}
-
 {% block content %}
   <div class="govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third-from-desktop">
-        <h1 class="govuk-heading-l">Something went wrong.</h1>
-        <p>{{ message }}</p>
-        <p>{{ error }}</p>
+    <main class="govuk-main-wrapper" id="content">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third-from-desktop">
+          <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+          <p class="govuk-body">{{ message }}</p>
+          <p class="govuk-body">{{ error }}</p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">Go back to the Key homepage</a>
+          </p>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 {% endblock %}

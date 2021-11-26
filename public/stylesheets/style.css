@@ -1065,8 +1065,8 @@ body {
     }
     @supports (margin:max(calc(0px))) {
         .govuk-width-container {
-            margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
-            margin-left: max(30px, calc(15px + env(safe-area-inset-left)))
+            margin-right: max(30px, calc(15px + env(safe-area-inset-right, auto)));
+            margin-left: max(30px, calc(15px + env(safe-area-inset-left,auto)))
         }
     }
 }
@@ -7913,6 +7913,7 @@ only screen and (min-resolution:192dpi) {
 
 .main-video{
   text-align: right;
+  display: block;
 }
 
 @media screen and (max-width: 640px){
@@ -7998,6 +7999,10 @@ progress#complete::-webkit-progress-bar{
 @media screen and (max-width: 748px){
     .sign-in-panel-left{
         width: 100%;
+    }
+
+    .promo-banner{
+        margin-top: 40px;
     }
 }
 
