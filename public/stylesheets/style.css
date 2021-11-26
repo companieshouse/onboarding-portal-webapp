@@ -1071,19 +1071,6 @@ body {
     }
 }
 
-@media (min-width:1020px) {
-    .govuk-width-container {
-        margin-right: auto;
-        margin-left: auto
-    }
-    @supports (margin:max(calc(0px))) {
-        .govuk-width-container {
-            margin-right: auto;
-            margin-left: auto
-        }
-    }
-}
-
 .govuk-accordion {
     margin-bottom: 20px
 }
@@ -8005,6 +7992,13 @@ progress#complete::-webkit-progress-bar{
 
 .sign-in-container{
     display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 748px){
+    .sign-in-panel-left{
+        width: 100%;
+    }
 }
 
 .sign-in{

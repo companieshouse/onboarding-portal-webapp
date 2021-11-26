@@ -20,12 +20,20 @@
               </div>
             </div>
           {% endif %}
-          <h1 class="govuk-heading-l">Sign in to Key</h1>
-          <form method="post" action="/login?return_to={{RETURN_URL}}">
+          <h1 class="govuk-heading-l">Create an account</h1>
+          <form method="post" action="/register?return_to={{RETURN_URL}}">
+            <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label" for="email">
+                  Email
+                </label>
+              </h1>
+              <input class="govuk-input" id="email" name="email" type="email">
+            </div>
             <div class="govuk-form-group">
               <h1 class="govuk-label-wrapper">
                 <label class="govuk-label" for="username">
-                  Email
+                  Name
                 </label>
               </h1>
               <input class="govuk-input" id="username" name="username" type="text">
@@ -38,8 +46,8 @@
               </h1>
               <input class="govuk-input" type="password" id="password" name="password">
             </div>
-            <button class="govuk-button" type="submit" data-module="govuk-button">
-              Sign in
+            <button class="govuk-button govuk-!-margin-bottom-0" type="submit" data-module="govuk-button">
+              Register
             </button>
           </form>
         </div>
