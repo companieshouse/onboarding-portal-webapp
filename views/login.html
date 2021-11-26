@@ -3,7 +3,7 @@
 {% block content %}
 <div class="sign-in">
   <div class="govuk-width-container">
-    <main class="govuk-main-wrapper">
+    <main class="govuk-main-wrapper" id="content">
       <div class="govuk-grid-row sign-in-container govuk-!-margin-top-6 govuk-!-margin-bottom-6">
         <div class="govuk-grid-column-one-half-from-desktop sign-in-panel-left govuk-!-padding-left-6 govuk-!-padding-right-6 govuk-!-padding-bottom-9 govuk-!-padding-top-9  govuk-!-margin-0">
           {% if error %}
@@ -42,6 +42,7 @@
               Sign in
             </button>
           </form>
+          <p class="govuk-body govuk-!-margin-bottom-0"><a href="/register" class="govuk-link">Register</a></p>
         </div>
         <div class="govuk-grid-column-one-half-from-desktop sign-in-panel-right">
           <h2 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-9">Did you know: since 2013 Companies House has raised over £88,000 for good causes and has donated over £100,000 worth of items to local groups and charities - including furniture, equipment, and IT hardware.</h2>
