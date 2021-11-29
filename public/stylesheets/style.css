@@ -1032,8 +1032,9 @@ body {
 
 @supports (margin:max(calc(0px))) {
     .govuk-width-container {
-        margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
-        margin-left: max(15px, calc(15px + env(safe-area-inset-left)))
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0 8px;
     }
 }
 
@@ -1044,8 +1045,9 @@ body {
     }
     @supports (margin:max(calc(0px))) {
         .govuk-width-container {
-            margin-right: max(30px, calc(15px + env(safe-area-inset-right, auto)));
-            margin-left: max(30px, calc(15px + env(safe-area-inset-left,auto)))
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 8px;
         }
     }
 }
@@ -7959,4 +7961,8 @@ only screen and (min-resolution:192dpi) {
 
 .sign-in{
     background-color: #F3F2F1;
+}
+
+.grey-background{
+    background-color: #EFEBE8;
 }
