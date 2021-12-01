@@ -9,6 +9,12 @@ export const loginGet = (req: Request, res: Response): void => {
     return res.render('login', {RETURN_URL:encodeURI(returnUri)});
 };
 
+export const registerGet = (req: Request, res: Response): void => {
+    const returnUri = req.query.return as string;
+    
+    return res.render('register', {RETURN_URL:encodeURI(returnUri)});
+};
+
 export const registerPost = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const password: string = req.body.password;
     const email: string = req.body.email;
