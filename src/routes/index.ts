@@ -1,8 +1,7 @@
 import express = require('express');
 import { homePage } from '../controllers/homePageController';
 import { infoPage } from '../controllers/infoPageController';
-import { loginPost, registerGet, registerPost } from '../controllers/loginController';
-import { loginGet } from '../controllers/loginController';
+import { loginPost, loginGet, registerGet, registerPost } from '../controllers/loginController';
 import { Router } from "express";
 import { page } from '../controllers/pageController';
 import { healthcheck } from '../controllers/healthCheckController';
