@@ -9,7 +9,7 @@ export const userAuthMiddleware = async (req: Request, res: Response, next: Next
   console.log("Cookie: " + cookie);
 
   if (!cookie) {
-    return res.redirect("/login?return="+req.originalUrl);
+    return res.redirect("/login?return_to="+req.originalUrl);
   }
   
   if (await validateCookie(cookie)) {
