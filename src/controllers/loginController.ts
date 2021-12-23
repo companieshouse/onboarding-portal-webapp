@@ -52,7 +52,7 @@ export const registerPost = async (req: Request, res: Response, next: NextFuncti
         if (error.response && error.response.status === 400) {
             return res.render('register', { error: 'Error Creating Account', RETURN_URL: `${returnTo}` });
         } else if(error.message) {
-            return res.render('register', { error: `${error.message}`, RETURN_URL: `${returnTo}`})
+            return res.render('register', { error: `${error.message}`, RETURN_URL: `${returnTo}`});
         } else {
             return next(error);
         }
