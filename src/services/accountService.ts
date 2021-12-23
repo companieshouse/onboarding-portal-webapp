@@ -9,6 +9,12 @@ import { CMS_API_URL, MOCK_API_RESPONSES } from '../properties';
 
 export const register = async (res: Response, username: string, email: string, password: string): Promise<void> => {
   
+  const emailValidationRegExp = /^\w+@companieshouse.gov.uk$/; // regExp literal
+  
+  // Check if the email is NOT a companies house email and throw an error if it isn't
+  if(!email.match(emailValidationRegExp)) {
+      throw new Error("Email address is not a Companies House provided email.");
+  }
   const url: string = CMS_API_URL + '/auth/local/register';
 
   const axiosConfig: axios.AxiosRequestConfig = getBaseAxiosRequestConfig(
