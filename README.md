@@ -1,4 +1,4 @@
-# Onboarding Portal Project
+# Onboarding Portal Webapp
 A webapp which displays content to introduce new starters to the digital department in Companies House.
 
 ## Technologies
@@ -16,12 +16,12 @@ Name                    | Description                                        | E
 CMS_API_URL             | The URL of the backend STRAPI api                  | http://localhost:1337
 MOCK_API_RESPONSES      | Whether to actually call the api or use local JSON | true
 
-## Running locally
-Run `npm run buildAndStart` and navigate to http://localhost:3000 in your browser to see the landing page.
+## Usage locally
+Run `npm i` to install dependencies and `npm run buildAndStart` to build and start the project. Then navigate to http://localhost:3000 in your browser to see the landing page.
 
 Alternatively, run `npm run build` to build and `npm run start` to deploy.
 
-## Building with Docker
+## Usage with Docker
 To build a docker image for this app run the following command
 ```
 docker build -t onboarding-portal-webapp .
@@ -38,3 +38,6 @@ If `MOCK_API_RESPONSES` is set to true, the api call for `/home-pages` will retu
 
 ## Troubleshooting
 If the webapp displays errors, ensure the CMS_API environment variable points to the correct URL and verify that the STRAPI api is running.
+
+## Documentation
+For more in depth documentation, please navigate to the [docs](docs) folder and view the [docs.md](docs/docs.md).
