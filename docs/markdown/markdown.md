@@ -1,0 +1,2 @@
+# Markdown to HTML Conversion
+The webapp retrieves content from the STRAPI backend in Markdown format. This is converted to HTML through the [markedjs](https://github.com/markedjs/marked/blob/master/src/Renderer.js) library. HTML attributes that are converted using markedjs can be expanded upon using a renderer. All relevant code is contained in the [markdownHtmlConverterService.ts](../../src/services/markdownHtmlConverterService.ts).

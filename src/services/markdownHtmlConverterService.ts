@@ -33,7 +33,7 @@ function sanitiseOptions(): IOptions {
           ],
           disallowedTagsMode: 'discard',
           allowedAttributes: {
-            a: [ 'href', 'name', 'target' ],
+            a: [ 'href', 'name', 'rel', 'target' ],
             img: [ 'src', "alt" ],
             iframe: [ 'class', 'width', 'height', 'src', 'title', 'frameborder', 'allow', 'allowfullscreen'],
             p: ['class'],
@@ -48,7 +48,10 @@ function sanitiseOptions(): IOptions {
     };
 }
 
-// Override Marked functions to add gov uk classes to elements we want
+/*
+  Override Marked functions to add gov uk classes to elements we want
+  Add the target="_blank" option to links so they open in new tabs
+*/
 const renderer = {
     list(body: string, ordered: boolean, start: string | number) {
         const type = ordered ? 'ol' : 'ul',
@@ -58,6 +61,17 @@ const renderer = {
       },
       paragraph(text: string) {
         return '<p class="govuk-body">' + text + '</p>\n';
+      },
+      link(href: string, title: string, text: string) {
+        if (href === null) {
+          return text;
+        }
+        let out = '<a href="' + href + '"';
+        if (title) {
+          out += ' title="' + title + '"';
+        }
+        out += ' target="_blank" rel="noopener noreferrer">' + text + '</a>';
+        return out;
       }
 };
 
